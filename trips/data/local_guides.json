@@ -1,0 +1,160 @@
+{
+  "goa": {
+    "display": "Goa", "aliases": ["panaji", "panjim"],
+    "food": [
+      {"name": "Goan fish curry rice", "about": "Coconut-and-kokum fish curry with rice; the everyday meal of the coast."},
+      {"name": "Bebinca", "about": "Layered Goan dessert made with coconut milk, eggs and ghee."},
+      {"name": "Pork vindaloo", "about": "Tangy, spicy Goan-Portuguese curry made with vinegar and chillies."}
+    ],
+    "crafts": [
+      {"name": "Terracotta pottery", "about": "Handmade clay lamps, pots and figurines."},
+      {"name": "Kunbi sarees", "about": "Traditional red-checked handloom cotton of Goa."}
+    ]
+  },
+  "jaipur": {
+    "display": "Jaipur", "aliases": [],
+    "food": [
+      {"name": "Dal baati churma", "about": "Baked wheat balls with lentils and sweet crumbled churma."},
+      {"name": "Pyaaz kachori", "about": "Crisp onion-stuffed fried snack, a Rajasthani breakfast favourite."},
+      {"name": "Ghewar", "about": "Disc-shaped syrup-soaked sweet, mostly made around Teej (monsoon)."}
+    ],
+    "crafts": [
+      {"name": "Blue pottery", "about": "Quartz-based glazed ceramics painted in blue and white."},
+      {"name": "Block printing", "about": "Hand-stamped cotton fabrics from Sanganer and Bagru."},
+      {"name": "Mojari footwear", "about": "Embroidered leather shoes, traditional to Rajasthan."}
+    ]
+  },
+  "varanasi": {
+    "display": "Varanasi", "aliases": ["banaras", "benaras", "kashi"],
+    "food": [
+      {"name": "Kachori sabzi", "about": "Classic Banarasi breakfast: crisp kachori with spiced potato curry."},
+      {"name": "Tamatar chaat", "about": "Spicy tomato-based street chaat the city is known for."},
+      {"name": "Banarasi paan", "about": "Betel-leaf after-meal treat, best tried at a local paan shop."}
+    ],
+    "crafts": [
+      {"name": "Banarasi silk sarees", "about": "Silk woven with gold and silver brocade (zari)."},
+      {"name": "Wooden toys", "about": "Lacquered toys made by local craftsmen."}
+    ]
+  },
+  "hyderabad": {
+    "display": "Hyderabad", "aliases": [],
+    "food": [
+      {"name": "Hyderabadi biryani", "about": "Dum-cooked rice and meat, a signature dish of the city."},
+      {"name": "Irani chai & Osmania biscuit", "about": "Milky tea with a sweet-salty biscuit at old Irani cafes."},
+      {"name": "Haleem", "about": "Slow-cooked meat and wheat dish, mainly served during Ramadan."}
+    ],
+    "crafts": [
+      {"name": "Pearls", "about": "Hyderabad is known as the City of Pearls; shop around Charminar."},
+      {"name": "Bidriware", "about": "Metalwork inlaid with silver, a Deccan craft."},
+      {"name": "Lac bangles", "about": "Colourful studded bangles sold at Laad Bazaar."}
+    ]
+  },
+  "kolkata": {
+    "display": "Kolkata", "aliases": ["calcutta"],
+    "food": [
+      {"name": "Kathi roll", "about": "Spiced kebab or egg wrapped in paratha; invented in Kolkata."},
+      {"name": "Rosogolla & mishti doi", "about": "Bengali sweets: spongy syrup balls and sweet curd."},
+      {"name": "Phuchka", "about": "Crisp shells filled with spiced potato and tangy water."}
+    ],
+    "crafts": [
+      {"name": "Kantha embroidery", "about": "Running-stitch textile work on sarees and stoles."},
+      {"name": "Dokra metal art", "about": "Lost-wax brass figurines from Bengal tribal craft."},
+      {"name": "Terracotta", "about": "Bengal clay art, famous from Bishnupur."}
+    ]
+  },
+  "udaipur": {
+    "display": "Udaipur", "aliases": [],
+    "food": [
+      {"name": "Dal baati churma", "about": "Rajasthani staple, widely served at Mewari thalis."},
+      {"name": "Gatte ki sabzi", "about": "Gram-flour dumplings in a spiced yoghurt gravy."}
+    ],
+    "crafts": [
+      {"name": "Miniature paintings", "about": "Detailed Mewar-style paintings on paper and cloth."},
+      {"name": "Pichwai art", "about": "Large devotional cloth paintings from nearby Nathdwara."},
+      {"name": "Bandhani textiles", "about": "Tie-dye fabrics in bright colours."}
+    ]
+  },
+  "mysuru": {
+    "display": "Mysuru", "aliases": ["mysore"],
+    "food": [
+      {"name": "Mysore pak", "about": "Rich ghee and gram-flour sweet, originally from the Mysore palace kitchens."},
+      {"name": "Mysore masala dosa", "about": "Dosa with a red chutney spread inside."}
+    ],
+    "crafts": [
+      {"name": "Mysore silk", "about": "Pure silk sarees known for soft texture and zari borders."},
+      {"name": "Sandalwood products", "about": "Carvings, incense and oils; buy from government-certified shops."},
+      {"name": "Channapatna toys", "about": "Lacquered wooden toys from a town on the way to Bengaluru."}
+    ]
+  },
+  "kochi": {
+    "display": "Kochi", "aliases": ["cochin", "ernakulam"],
+    "food": [
+      {"name": "Appam with stew", "about": "Lacy rice pancakes served with coconut-milk vegetable or chicken stew."},
+      {"name": "Karimeen pollichathu", "about": "Pearl-spot fish marinated and steamed in banana leaf."},
+      {"name": "Puttu & kadala curry", "about": "Steamed rice-and-coconut cylinders with black chickpea curry."}
+    ],
+    "crafts": [
+      {"name": "Coconut-shell crafts", "about": "Bowls, spoons and decor made from coconut shells."},
+      {"name": "Kathakali masks", "about": "Colourful figures and masks inspired by Kerala's classical dance."}
+    ]
+  },
+  "amritsar": {
+    "display": "Amritsar", "aliases": [],
+    "food": [
+      {"name": "Amritsari kulcha", "about": "Stuffed tandoor bread served with chole and butter."},
+      {"name": "Lassi", "about": "Thick, creamy Punjabi yoghurt drink."},
+      {"name": "Langar at the Golden Temple", "about": "Free community meal served to all visitors."}
+    ],
+    "crafts": [
+      {"name": "Phulkari embroidery", "about": "Colourful floral thread work on shawls and dupattas."},
+      {"name": "Punjabi juttis", "about": "Embroidered leather shoes."}
+    ]
+  },
+  "lucknow": {
+    "display": "Lucknow", "aliases": [],
+    "food": [
+      {"name": "Tunday kebab", "about": "Melt-in-the-mouth minced meat kebabs, the city's signature."},
+      {"name": "Awadhi biryani", "about": "Mild, fragrant dum biryani, different from the Hyderabadi style."},
+      {"name": "Basket chaat", "about": "Crisp potato basket filled with chaat toppings."}
+    ],
+    "crafts": [
+      {"name": "Chikankari", "about": "Delicate white thread embroidery on soft fabrics."},
+      {"name": "Zardozi", "about": "Metallic-thread embroidery used on festive wear."}
+    ]
+  },
+  "mumbai": {
+    "display": "Mumbai", "aliases": ["bombay"],
+    "food": [
+      {"name": "Vada pav", "about": "Spiced potato fritter in a bun; the city's iconic snack."},
+      {"name": "Pav bhaji", "about": "Buttery mashed vegetable curry with soft bread rolls."},
+      {"name": "Bun maska & chai", "about": "Buttered bun with tea at old Irani cafes."}
+    ],
+    "crafts": [
+      {"name": "Kolhapuri chappals", "about": "Handmade leather sandals from Maharashtra."},
+      {"name": "Warli paintings", "about": "Tribal art of simple white figures on earthy backgrounds."}
+    ]
+  },
+  "delhi": {
+    "display": "Delhi", "aliases": ["new delhi"],
+    "food": [
+      {"name": "Parathas", "about": "Stuffed fried breads, famous at Paranthe Wali Gali in Old Delhi."},
+      {"name": "Chaat", "about": "Street snacks like aloo tikki and golgappe across Chandni Chowk."},
+      {"name": "Daulat ki chaat", "about": "Airy milk-foam dessert, available in winter."}
+    ],
+    "crafts": [
+      {"name": "Dilli Haat crafts", "about": "A market with handicrafts from states across India."},
+      {"name": "Zardozi embroidery", "about": "Gold-thread work, traditional to old Delhi."}
+    ]
+  },
+  "belagavi": {
+    "display": "Belagavi", "aliases": ["belgaum"],
+    "food": [
+      {"name": "Kunda", "about": "Rich milk-based sweet, Belagavi's most famous."},
+      {"name": "Jolada rotti meal", "about": "Sorghum flatbread with spicy North Karnataka curries."},
+      {"name": "Gokak karadantu", "about": "Edible-gum and jaggery sweet from nearby Gokak."}
+    ],
+    "crafts": [
+      {"name": "Kolhapuri chappals", "about": "Handmade leather sandals made in the Belagavi–Kolhapur region."}
+    ]
+  }
+}

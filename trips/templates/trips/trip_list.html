@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row between">
+  <h1>My trips</h1>
+  <a class="btn" href="{% url 'trip_create' %}">+ New trip</a>
+</div>
+{% for trip in trips %}
+  <a class="card trip-card" href="{% url 'trip_detail' trip.pk %}">
+    <h2>{{ trip.destination }}</h2>
+    <p class="muted">{{ trip.start_date|date:"d M Y" }} → {{ trip.end_date|date:"d M Y" }} · {{ trip.days }} day{{ trip.days|pluralize }}</p>
+    <p>Budget ₹{{ trip.budget }} · Spent ₹{{ trip.spent }}</p>
+  </a>
+{% empty %}
+  <p class="card">No trips yet. Plan your first one!</p>
+{% endfor %}
+{% endblock %}

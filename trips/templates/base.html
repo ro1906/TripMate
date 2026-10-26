@@ -1,0 +1,30 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}TripMate{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'trips/style.css' %}">
+  {% block head %}{% endblock %}
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="{% url 'trip_list' %}">🧭 TripMate</a>
+    <nav>
+      {% if user.is_authenticated %}
+        <span class="muted">Hi, {{ user.username }}</span>
+        <form method="post" action="{% url 'logout' %}" class="inline">{% csrf_token %}<button class="link">Log out</button></form>
+      {% else %}
+        <a href="{% url 'login' %}">Log in</a>
+        <a href="{% url 'register' %}">Sign up</a>
+      {% endif %}
+    </nav>
+  </header>
+  <main class="container">
+    {% for message in messages %}<p class="alert">{{ message }}</p>{% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

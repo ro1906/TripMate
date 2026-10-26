@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ trip.destination }} · TripMate{% endblock %}
+{% block head %}
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+{% endblock %}
+{% block content %}
+<div class="row between">
+  <div>
+    <h1>{{ trip.destination }}</h1>
+    <p class="muted">{{ trip.start_date|date:"d M Y" }} → {{ trip.end_date|date:"d M Y" }} · {{ trip.days }} day{{ trip.days|pluralize }}</p>
+  </div>
+  <form method="post" action="{% url 'trip_delete' trip.pk %}" onsubmit="return confirm('Delete this trip?')">{% csrf_token %}
+    <button class="btn danger">Delete trip</button>
+  </form>
+</div>
+
+<section class="card">
+  <h2>🗓️ Itinerary</h2>
+  {% for day, items in by_day %}
+    <h3>Day {{ day }}</h3>
+    <ul class="plain">
+      {% for a in items %}
+        <li>
+          <strong>{{ a.title }}</strong>{% if a.place %} · 📍 {{ a.place }}{% endif %}
+          {% if a.notes %}<span class="muted"> — {{ a.notes }}</span>{% endif %}
+          <form method="post" action="{% url 'activity_delete' trip.pk a.pk %}" class="inline">{% csrf_token %}<button class="link danger-text" title="Remove">✕</button></form>
+        </li>
+      {% empty %}<li class="muted">Nothing planned yet</li>{% endfor %}
+    </ul>
+  {% endfor %}
+  <form method="post" action="{% url 'activity_add' trip.pk %}" class="grid-form">{% csrf_token %}
+    {{ activity_form.as_p }}
+    <button class="btn">Add activity</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>🗺️ Map</h2>
+  {% if center or markers %}
+    <div id="map"></div>
+    <p class="muted small">Pins appear for activities whose place name could be found.</p>
+  {% else %}
+    <p class="muted">Couldn't locate this destination on the map.</p>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h2>🌤️ Weather forecast</h2>
+  {% if weather %}
+    <div class="weather">
+      {% for w in weather %}
+        <div class="day"><strong>{{ w.date|slice:"5:" }}</strong><br>{{ w.max }}° / {{ w.min }}°<br>🌧 {{ w.rain }} mm</div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="muted">Forecast is available only for dates within the next 16 days.</p>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h2>🍛 Local flavours{% if guide %} in {{ guide.city }}{% endif %}</h2>
+  {% if guide %}
+    <h3>Must-try food</h3>
+    <ul class="plain">{% for f in guide.food %}<li><strong>{{ f.name }}</strong> — {{ f.about }}</li>{% endfor %}</ul>
+    <h3>Local arts &amp; crafts to look for</h3>
+    <ul class="plain">{% for c in guide.crafts %}<li><strong>{{ c.name }}</strong> — {{ c.about }}</li>{% endfor %}</ul>
+    <p class="muted small">Information only. Availability and seasons can change, so confirm locally.</p>
+  {% else %}
+    <p class="muted">No curated guide for this destination yet.
+      <a target="_blank" rel="noopener" href="https://www.google.com/search?q=famous+local+food+and+handicrafts+in+{{ trip.destination|urlencode }}">Search the web for it</a>.</p>
+  {% endif %}
+</section>
+
+<section class="card">
+  <h2>💰 Budget</h2>
+  <div class="bar"><div class="fill {% if over_budget %}over{% endif %}" style="width: {{ percent }}%"></div></div>
+  <p>Budget ₹{{ trip.budget }} · Spent ₹{{ trip.spent }} ·
+    <strong class="{% if over_budget %}danger-text{% endif %}">{% if over_budget %}Over by ₹{{ trip.remaining|cut:"-" }}{% else %}Left ₹{{ trip.remaining }}{% endif %}</strong></p>
+  {% if spent_by_category %}
+    <p class="muted">{% for cat, amt in spent_by_category.items %}{{ cat }}: ₹{{ amt }}{% if not forloop.last %} · {% endif %}{% endfor %}</p>
+  {% endif %}
+  <ul class="plain">
+    {% for e in trip.expenses.all %}
+      <li>{{ e.get_category_display }} · {{ e.description }} — ₹{{ e.amount }}
+        <form method="post" action="{% url 'expense_delete' trip.pk e.pk %}" class="inline">{% csrf_token %}<button class="link danger-text" title="Remove">✕</button></form></li>
+    {% empty %}<li class="muted">No expenses yet</li>{% endfor %}
+  </ul>
+  <form method="post" action="{% url 'expense_add' trip.pk %}" class="grid-form">{% csrf_token %}
+    {{ expense_form.as_p }}
+    <button class="btn">Add expense</button>
+  </form>
+</section>
+
+<section class="card">
+  <h2>🎒 Packing list</h2>
+  {% for group, things in packing.items %}
+    <h3>{{ group }}</h3>
+    <ul class="checklist">{% for t in things %}<li><label><input type="checkbox"> {{ t }}</label></li>{% endfor %}</ul>
+  {% endfor %}
+</section>
+
+{{ markers|json_script:"markers-data" }}
+{{ center|json_script:"center-data" }}
+{% endblock %}
+{% block scripts %}
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="{% static 'trips/map.js' %}"></script>
+{% endblock %}
